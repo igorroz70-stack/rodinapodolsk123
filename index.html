@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ДЮОЦ "Родина" - Современный детский лагерь в Подольске</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Базовые стили и сброс */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00C9A7; /* Модный бирюзовый */
+            --primary-dark: #00A88B;
+            --secondary: #845EC2; /* Фиолетовый */
+            --accent: #FF6F91; /* Коралловый */
+            --accent-light: #FF9671;
+            --dark: #2C2C54;
+            --light: #F7F9FC;
+            --text: #4A4A68;
+            --white: #FFFFFF;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --gradient-accent: linear-gradient(135deg, var(--accent), var(--accent-light));
+        }
+
+        body {
+            color: var(--text);
+            line-height: 1.7;
+            font-family: 'Nunito', sans-serif;
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Современный хедер */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-size: 1.4rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+        }
+
+        .logo-text span {
+            font-size: 0.8rem;
+            color: var(--text);
+            opacity: 0.8;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background: var(--gradient);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .phone {
+            background: var(--gradient);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 201, 167, 0.3);
+        }
+
+        .phone:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 201, 167, 0.4);
+        }
+
+        /* Герой секция в современном стиле */
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 201, 167, 0.1) 0%, rgba(132, 94, 194, 0.1) 100%);
+            padding: 180px 0 120px;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            opacity: 0.05;
+            top: -300px;
+            right: -200px;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            opacity: 0.05;
+            bottom: -200px;
+            left: -100px;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gradient-accent);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(255, 111, 145, 0.3);
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            color: var(--text);
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient);
+            color: white;
+            padding: 16px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.4s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 201, 167, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 201, 167, 0.4);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Секции */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text);
+            max-width: 700px;
+            margin: 30px auto 0;
+            opacity: 0.8;
+        }
+
+        /* О лагере с современной статистикой */
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* Программы в современном стиле */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+        }
+
+        .program-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .program-image {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .program-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 201, 167, 0.8) 0%, rgba(132, 94, 194, 0.8) 100%);
+            opacity: 0;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .program-card:hover .program-overlay {
+            opacity: 1;
+        }
+
+        .program-content {
+            padding: 30px;
+        }
+
+        .program-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .program-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .program-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .program-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .program-features li:last-child {
+            border-bottom: none;
+        }
+
+        .program-features i {
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        /* Галерея в современном стиле masonry */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-auto-rows: 200px;
+            gap: 20px;
+            grid-auto-flow: dense;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:nth-child(3n) {
+            grid-row: span 2;
+        }
+
+        .gallery-item:nth-child(4n) {
+            grid-column: span 2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 201, 167, 0.8) 0%, rgba(132, 94, 194, 0.8) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Современная форма бронирования */
+        .booking-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-radius: 30px;
+            padding: 60px;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .booking-section::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            top: -150px;
+            right: -100px;
+        }
+
+        .booking-section::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            bottom: -100px;
+            left: -50px;
+        }
+
+        .booking-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+
+        .booking-content h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .booking-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .booking-form {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #eef2f7;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fafbfc;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(0, 201, 167, 0.1);
+        }
+
+        /* Футер */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #b0b0c0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b0b0c0;
+            font-size: 0.9rem;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .booking-section {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Современный хедер -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-campground"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>ДЮОЦ "РОДИНА"</h1>
+                    <span>Детско-юношеский оздоровительный центр</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#about">О лагере</a></li>
+                    <li><a href="#programs">Программы</a></li>
+                    <li><a href="#gallery">Галерея</a></li>
+                    <li><a href="#reviews">Отзывы</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="tel:84967535417" class="phone">
+                    <i class="fas fa-phone"></i> 8 (4967) 53-54-17
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Герой секция -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-star"></i> Лучший детский лагерь 2025
+                </div>
+                <h2>Современный подход к детскому отдыху и развитию</h2>
+                <p>Инновационные программы, профессиональные педагоги и безопасная среда для раскрытия талантов вашего ребенка</p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="#booking" class="btn">
+                        <i class="fas fa-calendar-check"></i> Забронировать место
+                    </a>
+                    <a href="#programs" class="btn btn-secondary">
+                        <i class="fas fa-play-circle"></i> Смотреть программы
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О лагере -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">О нашем лагере</div>
+                <h2 class="section-title">Пространство для роста и развития</h2>
+                <p class="section-subtitle">Современный детский центр с 15-летней историей, объединяющий лучшие традиции и инновационные подходы к образованию и отдыху</p>
+            </div>
+            
+            <div class="about-content">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
+                    <div>
+                        <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Комплексный подход к развитию личности</h3>
+                        <p style="margin-bottom: 25px;">Мы создали уникальную экосистему, где каждый ребенок может найти себя, раскрыть потенциал и приобрести навыки для успешного будущего.</p>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px;">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div style="width: 40px; height: 40px; background: var(--gradient); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white;">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0; font-size: 1.1rem;">Безопасность</h4>
+                                    <p style="margin: 5px 0 0; opacity: 0.8;">Круглосуточная охрана и медицинское сопровождение</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div style="width: 40px; height: 40px; background: var(--gradient); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white;">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0; font-size: 1.1rem;">Профессионализм</h4>
+                                    <p style="margin: 5px 0 0; opacity: 0.8;">Опытные педагоги и вожатые с высшим образованием</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div style="width: 40px; height: 40px; background: var(--gradient); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white;">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0; font-size: 1.1rem;">Забота</h4>
+                                    <p style="margin: 5px 0 0; opacity: 0.8;">Индивидуальный подход к каждому ребенку</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                        <h4 style="margin-bottom: 25px; text-align: center;">Наши преимущества</h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 2.5rem; font-weight: 800; color: var(--primary);">15+</div>
+                                <div style="font-weight: 600;">лет опыта</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 2.5rem; font-weight: 800; color: var(--secondary);">5000+</div>
+                                <div style="font-weight: 600;">довольных детей</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 2.5rem; font-weight: 800; color: var(--accent);">30+</div>
+                                <div style="font-weight: 600;">направлений</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 2.5rem; font-weight: 800; color: var(--primary-dark);">100%</div>
+                                <div style="font-weight: 600;">безопасность</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">7-15</div>
+                        <div class="stat-text">Возраст детей</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5</div>
+                        <div class="stat-text">Гектаров территории</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-text">Медицинское сопровождение</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15</div>
+                        <div class="stat-text">Профессиональных педагогов</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Программы -->
+    <section id="programs" style="background: var(--light);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Образовательные программы</div>
+                <h2 class="section-title">Комплексное развитие талантов</h2>
+                <p class="section-subtitle">Современные образовательные методики, сочетающие традиционные ценности и инновационные подходы</p>
+            </div>
+            
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-image" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+                        <div class="program-overlay">
+                            <div style="color: white; text-align: center; padding: 20px;">
+                                <h3 style="color: white; margin-bottom: 10px;">Спортивное развитие</h3>
+                                <p>Современные спортивные программы для всех уровней подготовки</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <div class="program-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <h3>Спорт и активность</h3>
+                        <p>Комплексные спортивные программы для развития силы, выносливости и координации</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check"></i> Олимпийские виды спорта</li>
+                            <li><i class="fas fa-check"></i> Экстремальные активности</li>
+                            <li><i class="fas fa-check"></i> Командные игры</li>
+                            <li><i class="fas fa-check"></i> Индивидуальные тренировки</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-image" style="background-image: url('https://images.unsplash.com/photo-1544776193-352d25ca82cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+                        <div class="program-overlay">
+                            <div style="color: white; text-align: center; padding: 20px;">
+                                <h3 style="color: white; margin-bottom: 10px;">Творческие студии</h3>
+                                <p>Раскрытие творческого потенциала через искусство и ремесла</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <div class="program-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Творчество и искусство</h3>
+                        <p>Мастерские и студии для развития креативного мышления и художественных навыков</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check"></i> Живопись и графика</li>
+                            <li><i class="fas fa-check"></i> Декоративно-прикладное искусство</li>
+                            <li><i class="fas fa-check"></i> Цифровое творчество</li>
+                            <li><i class="fas fa-check"></i> Сценическое мастерство</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-image" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+                        <div class="program-overlay">
+                            <div style="color: white; text-align: center; padding: 20px;">
+                                <h3 style="color: white; margin-bottom: 10px;">Наука и технологии</h3>
+                                <p>Современные STEM-программы для будущих innovators</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <div class="program-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Наука и технологии</h3>
+                        <p>Инновационные программы по робототехнике, программированию и научным экспериментам</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check"></i> Робототехника и AI</li>
+                            <li><i class="fas fa-check"></i> Программирование</li>
+                            <li><i class="fas fa-check"></i> Научные эксперименты</li>
+                            <li><i class="fas fa-check"></i> 3D-моделирование</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Бронирование -->
+    <section id="booking">
+        <div class="container">
+            <div class="booking-section">
+                <div class="booking-content">
+                    <h2>Готовы к приключениям?</h2>
+                    <p>Забронируйте место для вашего ребенка на следующую смену и подарите ему незабываемые каникулы</p>
+                    
+                    <div class="booking-form">
+                        <form id="bookingForm">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Имя ребенка</label>
+                                    <input type="text" class="form-control" placeholder="Введите имя" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Возраст</label>
+                                    <input type="number" class="form-control" placeholder="7-15 лет" min="7" max="15" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Телефон родителя</label>
+                                    <input type="tel" class="form-control" placeholder="+7 (XXX) XXX-XX-XX" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" placeholder="your@email.com" required>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label class="form-label">Выберите смену</label>
+                                    <select class="form-control" required>
+                                        <option value="">-- Выберите смену --</option>
+                                        <option value="1">Летняя смена 1 (1-21 июня)</option>
+                                        <option value="2">Летняя смена 2 (25 июня - 15 июля)</option>
+                                        <option value="3">Летняя смена 3 (19 июля - 8 августа)</option>
+                                        <option value="4">Летняя смена 4 (12 августа - 1 сентября)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group full-width">
+                                    <button type="submit" class="btn" style="width: 100%;">
+                                        <i class="fas fa-paper-plane"></i> Забронировать место
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Галерея -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Наша галерея</div>
+                <h2 class="section-title">Жизнь в лагере</h2>
+                <p class="section-subtitle">Яркие моменты, счастливые лица и незабываемые впечатления</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Дети в бассейне">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus" style="color: white; font-size: 2rem;"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1542816417-0983c9c6adfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Творческие занятия">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus" style="color: white; font-size: 2rem;"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Спортивные мероприятия">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus" style="color: white; font-size: 2rem;"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1571622840901-92ae465ab5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Вечерние мероприятия">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus" style="color: white; font-size: 2rem;"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1593115057322-e94b77572f20?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Обучение на природе">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus" style="color: white; font-size: 2rem;"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1491013516836-7db643ee125a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Творческие проекты">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus" style="color: white; font-size: 2rem;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer id="contacts">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ДЮОЦ "Родина"</h3>
+                    <p style="color: #b0b0c0; margin-bottom: 20px;">Современный детский оздоровительный центр, где каждый ребенок находит себя и раскрывает свой потенциал.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Навигация</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Главная</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> О лагере</a></li>
+                        <li><a href="#programs"><i class="fas fa-chevron-right"></i> Программы</a></li>
+                        <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Галерея</a></li>
+                        <li><a href="#booking"><i class="fas fa-chevron-right"></i> Бронирование</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Программы</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Спортивное развитие</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Творческие студии</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Наука и технологии</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Языковые курсы</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Экологическое воспитание</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://maps.google.com"><i class="fas fa-map-marker-alt"></i> г.о. Подольск, ул. Парковая, 15</a></li>
+                        <li><a href="tel:84967535417"><i class="fas fa-phone"></i> 8 (4967) 53-54-17</a></li>
+                        <li><a href="tel:84967535418"><i class="fas fa-phone"></i> 8 (4967) 53-54-18</a></li>
+                        <li><a href="mailto:pdls_mu-rodina@mosreg.ru"><i class="fas fa-envelope"></i> pdls_mu-rodina@mosreg.ru</a></li>
+                        <li><a href="mailto:centr_rodina@mail.ru"><i class="fas fa-envelope"></i> centr_rodina@mail.ru</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 ДЮОЦ "Родина". Все права защищены. | Разработано с <i class="fas fa-heart" style="color: var(--accent);"></i> для счастливого детства</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Анимация при скролле
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Анимация для карточек
+        document.querySelectorAll('.program-card, .stat-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Анимация для галереи
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'scale(0.8)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(item);
+        });
+
+        // Обработка формы
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Имитация успешной отправки
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Успешно отправлено!';
+                submitBtn.style.background = 'var(--secondary)';
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.background = '';
+                    this.reset();
+                }, 2000);
+            }, 1500);
+        });
+
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Эффект для хедера при скролле
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.08)';
+            }
+        });
+    </script>
+</body>
+</html>
